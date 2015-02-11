@@ -1,4 +1,3 @@
-import math
 target = 2000000
 
 # creating Sieve of Eratosthenes
@@ -6,12 +5,12 @@ target = 2000000
 size = target
 sieve = [True] * (size + 1)
 for i in range(2, size + 1):
-	if sieve[i] == True:
-		for j in range(2, int(size / i) + 1):
-			sieve[j * i] = False
-			
+    if sieve[i] == True:
+        for j in range(2, int(size / i) + 1):
+            sieve[j * i] = False
+
 summation = 0
 for i in range(2, size):
-	if sieve[i] == True:
-		summation += i
+    if sieve[i] == True:
+        summation += i
 print summation
