@@ -1,11 +1,11 @@
 boundary = 1000
 
-def find_pythagorean_triplet():
+def get_answer():
     for a in range(1, boundary):
         for b in range(a, boundary):
             c = boundary - a - b
             if a ** 2 + b ** 2 == c ** 2:
-                print(a * b * c)
-                return
+                return a * b * c
 
-find_pythagorean_triplet()
+if __name__ == '__main__':
+    print(get_answer())

@@ -1,16 +1,20 @@
-target = 2000000
+def get_answer():
+    target = 2000000
 
-# creating Sieve of Eratosthenes
-#size = int(math.ceil(math.sqrt(target)))
-size = target
-sieve = [True] * (size + 1)
-for i in range(2, size + 1):
-    if sieve[i] == True:
-        for j in range(2, int(size / i) + 1):
-            sieve[j * i] = False
+    # creating Sieve of Eratosthenes
+    #size = int(math.ceil(math.sqrt(target)))
+    size = target
+    sieve = [True] * (size + 1)
+    for i in range(2, size + 1):
+        if sieve[i] == True:
+            for j in range(2, int(size / i) + 1):
+                sieve[j * i] = False
 
-summation = 0
-for i in range(2, size):
-    if sieve[i] == True:
-        summation += i
-print summation
+    summation = 0
+    for i in range(2, size):
+        if sieve[i] == True:
+            summation += i
+    return summation
+
+if __name__ == '__main__':
+    print(get_answer())

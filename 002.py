@@ -7,7 +7,12 @@ def even_fib_up_to_n(n):
         if b > n:
             raise StopIteration
 
-total = 0
-for i in even_fib_up_to_n(4000000):
-    total += i
-print total
+def get_answer():
+    total = 0
+    for i in even_fib_up_to_n(4000000):
+        total += i
+    return total
+
+
+if __name__ == '__main__':
+    print(get_answer())

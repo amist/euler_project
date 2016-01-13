@@ -36,35 +36,39 @@ def product(arr):
         res *= num
     return res
 
-max_product = 0
+def get_answer():
+    max_product = 0
 
-# check cols products
-for i in range(rows):
-    for j in range(cols - num_of_nums + 1):
-        #print grid[i][j:j + num_of_nums]
-        cur_product = product(grid[i][j:j + num_of_nums])
-        if max_product < cur_product:
-            max_product = cur_product
+    # check cols products
+    for i in range(rows):
+        for j in range(cols - num_of_nums + 1):
+            #print grid[i][j:j + num_of_nums]
+            cur_product = product(grid[i][j:j + num_of_nums])
+            if max_product < cur_product:
+                max_product = cur_product
 
-# check rows products
-for i in range(rows - num_of_nums + 1):
-    for j in range(cols):
-        column = [grid[i + k][j] for k in range(num_of_nums)]
-        cur_product = product(column)
-        if max_product < cur_product:
-            max_product = cur_product
+    # check rows products
+    for i in range(rows - num_of_nums + 1):
+        for j in range(cols):
+            column = [grid[i + k][j] for k in range(num_of_nums)]
+            cur_product = product(column)
+            if max_product < cur_product:
+                max_product = cur_product
 
-# check diagonals
-for i in range(rows - num_of_nums + 1):
-    for j in range(cols - num_of_nums + 1):
-        main_diagonal = [grid[i + k][j + k] for k in range(num_of_nums)]
-        cur_product = product(main_diagonal)
-        if max_product < cur_product:
-            max_product = cur_product
-        
-        anti_diagonal = [grid[i + num_of_nums - k - 1][j + k] for k in range(num_of_nums)]
-        cur_product = product(anti_diagonal)
-        if max_product < cur_product:
-            max_product = cur_product
+    # check diagonals
+    for i in range(rows - num_of_nums + 1):
+        for j in range(cols - num_of_nums + 1):
+            main_diagonal = [grid[i + k][j + k] for k in range(num_of_nums)]
+            cur_product = product(main_diagonal)
+            if max_product < cur_product:
+                max_product = cur_product
+            
+            anti_diagonal = [grid[i + num_of_nums - k - 1][j + k] for k in range(num_of_nums)]
+            cur_product = product(anti_diagonal)
+            if max_product < cur_product:
+                max_product = cur_product
 
-print max_product
+    return max_product
+
+if __name__ == '__main__':
+    print(get_answer())

@@ -14,16 +14,16 @@ def get_divisors(n):
     divs.append(n)
     return divs
 
-def get_answer_to_euler_12():
+def get_answer():
     trian = triangulars()
     while (True):
-        cur = trian.next()
+        cur = next(trian)
         divs = get_divisors(cur)
         #print cur, '->', divs
         if len(divs) > 500:
             return cur
 
 # 842161320 is not correct
-print get_answer_to_euler_12()
+print(get_answer())
 #print get_divisors(842161320)
 #print len(get_divisors(842161320))
