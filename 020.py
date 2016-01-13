@@ -8,5 +8,9 @@ def factorial(num):
     else:
         return num * factorial(num - 1)
 
-n = 100
-print digit_sum(factorial(n))
+def get_answer():
+    n = 100
+    return digit_sum(factorial(n))
+
+if __name__ == '__main__':
+    print(get_answer())

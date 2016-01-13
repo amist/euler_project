@@ -25,4 +25,8 @@ for key in chain_lengths:
         max_chain = cur_length
         max_value = key
 
-print max_value
+def get_answer():
+    return max_value
+    
+if __name__ == '__main__':
+    print(get_answer())

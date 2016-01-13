@@ -1,4 +1,5 @@
-triangle_raw = '''\
+def get_answer():
+    triangle_raw = '''\
 75
 95 64
 17 47 82
@@ -16,19 +17,22 @@ triangle_raw = '''\
 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23\
 '''
 
-triangle_lines = triangle_raw.split('\n')
-triangle = []
-for line in triangle_lines:
-    triangle.append([int(num) for num in line.split(' ')])
+    triangle_lines = triangle_raw.split('\n')
+    triangle = []
+    for line in triangle_lines:
+        triangle.append([int(num) for num in line.split(' ')])
 
-max_triangle = triangle
-for i in range(1, len(max_triangle)):
-    for j in range(len(max_triangle[i])):
-        if j == 0:
-            max_triangle[i][j] = max_triangle[i-1][j] + triangle[i][j]
-        elif j == len(max_triangle[i]) - 1:
-            max_triangle[i][j] = max_triangle[i-1][j-1] + triangle[i][j]
-        else:
-            max_triangle[i][j] = max(max_triangle[i-1][j] + triangle[i][j], max_triangle[i-1][j-1] + triangle[i][j])
-        
-print max(max_triangle[len(max_triangle) - 1])
+    max_triangle = triangle
+    for i in range(1, len(max_triangle)):
+        for j in range(len(max_triangle[i])):
+            if j == 0:
+                max_triangle[i][j] = max_triangle[i-1][j] + triangle[i][j]
+            elif j == len(max_triangle[i]) - 1:
+                max_triangle[i][j] = max_triangle[i-1][j-1] + triangle[i][j]
+            else:
+                max_triangle[i][j] = max(max_triangle[i-1][j] + triangle[i][j], max_triangle[i-1][j-1] + triangle[i][j])
+            
+    return max(max_triangle[len(max_triangle) - 1])
+    
+if __name__ == '__main__':
+    print(get_answer())

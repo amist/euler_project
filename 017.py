@@ -32,9 +32,9 @@ dictionary[1000] = 'thousand'
 
 def wordize(num):
     word = ''
-    d1000 = num / 1000
-    d100 = (num / 100) % 10
-    d10 = (num / 10) % 10
+    d1000 = int(num / 1000)
+    d100 = int(num / 100) % 10
+    d10 = int(num / 10) % 10
     d1 = num % 10
     w1000 = ''
     w100 = ''
@@ -67,7 +67,11 @@ def wordize(num):
 def letters_in_number(number):
     return len(number.replace(' ', '').replace('-', ''))
 
-summation = 0
-for i in range(1001):
-    summation += letters_in_number(wordize(i))
-print summation
+def get_answer():
+    summation = 0
+    for i in range(1001):
+        summation += letters_in_number(wordize(i))
+    return summation
+
+if __name__ == '__main__':
+    print(get_answer())

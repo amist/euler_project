@@ -5,12 +5,16 @@ def get_word_value(word):
         word_total += ord(ch) - 96
     return word_total
 
-f = open('p022_names.txt', 'r')
-names = f.read()[1:-1].split('","')
-names.sort()
+def get_answer():
+    f = open('p022_names.txt', 'r')
+    names = f.read()[1:-1].split('","')
+    names.sort()
 
-total = 0
-for i in range(len(names)):
-    total += (i + 1) * get_word_value(names[i])
+    total = 0
+    for i in range(len(names)):
+        total += (i + 1) * get_word_value(names[i])
 
-print total
+    return total
+    
+if __name__ == '__main__':
+    print(get_answer())

@@ -30,14 +30,18 @@ def progress_one_month():
         cur_month = 1
         cur_year += 1
 
-# prepare the calculation for 1 Jan 1901
-while cur_year < 1901:
-    progress_one_month()
+def get_answer():
+    # prepare the calculation for 1 Jan 1901
+    while cur_year < 1901:
+        progress_one_month()
 
-counter = 0
-while cur_year < 2001:
-    if cur_weekday == 1:
-        counter += 1
-    progress_one_month()
+    counter = 0
+    while cur_year < 2001:
+        if cur_weekday == 1:
+            counter += 1
+        progress_one_month()
 
-print counter
+    return counter
+
+if __name__ == '__main__':
+    print(get_answer())
